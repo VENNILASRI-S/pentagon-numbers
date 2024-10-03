@@ -1,0 +1,9 @@
+def p(n):
+    return n*(3*n-1)//2
+def is_pentagonal(p):
+    a=(1+24*p)**0.5
+    return True if a==int(a) and (a+1)%6==0 else False
+n,k=map(int,input().strip().split())
+for i in range(k+1,n):
+   if is_pentagonal(p(i)-p(i-k)) or is_pentagonal(p(i)+p(i-k)):
+       print(p(i))
